@@ -78,14 +78,8 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btn_Update = new System.Windows.Forms.Button();
-            this.label21 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.btn_Up = new System.Windows.Forms.Button();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.toolsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.toolsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.agriculturalMachineryDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -100,7 +94,7 @@
             this.agriculturalMachineryDataSetBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.agriculturalMachineryDataSet1 = new WindowsFormsAppDB.AgriculturalMachineryDataSet1();
             this.agriculturalMachineryDataSet1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.btn_Up = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.INSERT.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -605,15 +599,9 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.btn_Up);
-            this.tabPage3.Controls.Add(this.btn_Update);
-            this.tabPage3.Controls.Add(this.label21);
-            this.tabPage3.Controls.Add(this.comboBox2);
-            this.tabPage3.Controls.Add(this.label16);
-            this.tabPage3.Controls.Add(this.label10);
-            this.tabPage3.Controls.Add(this.comboBox4);
             this.tabPage3.Controls.Add(this.dataGridView4);
-            this.tabPage3.Controls.Add(this.comboBox3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -622,86 +610,26 @@
             this.tabPage3.Text = "Перегляд";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // btn_Update
+            // btn_Up
             // 
-            this.btn_Update.Location = new System.Drawing.Point(645, 272);
-            this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(75, 23);
-            this.btn_Update.TabIndex = 11;
-            this.btn_Update.Text = "UPDATE";
-            this.btn_Update.UseVisualStyleBackColor = true;
-            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(639, 179);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(155, 13);
-            this.label21.TabIndex = 10;
-            this.label21.Text = "Пошук за кодом замовлення";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DataSource = this.agriculturalMachineryDataSet;
-            this.comboBox2.DisplayMember = "Order.Id";
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(642, 204);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 9;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged_2);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(639, 117);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(118, 13);
-            this.label16.TabIndex = 8;
-            this.label16.Text = "Пошук по інструменту";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(642, 36);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(121, 13);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Вивід даних із таблиць";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.DataSource = this.toolsBindingSource2;
-            this.comboBox4.DisplayMember = "NameTool";
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(642, 133);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 6;
-            this.comboBox4.ValueMember = "IdTool";
-            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
+            this.btn_Up.Location = new System.Drawing.Point(6, 417);
+            this.btn_Up.Name = "btn_Up";
+            this.btn_Up.Size = new System.Drawing.Size(379, 52);
+            this.btn_Up.TabIndex = 12;
+            this.btn_Up.Text = "Переглянути/Оновити";
+            this.btn_Up.UseVisualStyleBackColor = true;
+            this.btn_Up.Click += new System.EventHandler(this.btn_Up_Click);
             // 
             // dataGridView4
             // 
             this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(3, 6);
+            this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView4.Location = new System.Drawing.Point(3, 3);
             this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(630, 408);
+            this.dataGridView4.Size = new System.Drawing.Size(806, 408);
             this.dataGridView4.TabIndex = 5;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Інструменти",
-            "Споживачі"});
-            this.comboBox3.Location = new System.Drawing.Point(642, 52);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 2;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged_1);
+            this.dataGridView4.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellEndEdit);
             // 
             // toolsBindingSource1
             // 
@@ -752,15 +680,15 @@
             this.agriculturalMachineryDataSet1BindingSource1.Position = 0;
             this.agriculturalMachineryDataSet1BindingSource1.CurrentChanged += new System.EventHandler(this.agriculturalMachineryDataSet1BindingSource1_CurrentChanged);
             // 
-            // btn_Up
+            // button1
             // 
-            this.btn_Up.Location = new System.Drawing.Point(645, 243);
-            this.btn_Up.Name = "btn_Up";
-            this.btn_Up.Size = new System.Drawing.Size(75, 23);
-            this.btn_Up.TabIndex = 12;
-            this.btn_Up.Text = "button1";
-            this.btn_Up.UseVisualStyleBackColor = true;
-            this.btn_Up.Click += new System.EventHandler(this.btn_Up_Click);
+            this.button1.Location = new System.Drawing.Point(536, 432);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // Form1
             // 
@@ -785,7 +713,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolsBindingSource)).EndInit();
@@ -854,19 +781,13 @@
         private AgriculturalMachineryDataSetTableAdapters.OrderTableAdapter orderTableAdapter;
         private System.Windows.Forms.BindingSource toolsBindingSource2;
         private AgriculturalMachineryDataSetTableAdapters.ToolsTableAdapter toolsTableAdapter;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.CheckBox chB_Done_NotDone;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.BindingSource agriculturalMachineryDataSetBindingSource4;
         private AgriculturalMachineryDataSet1 agriculturalMachineryDataSet1;
         private System.Windows.Forms.BindingSource agriculturalMachineryDataSet1BindingSource1;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label22;
@@ -874,8 +795,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btn_Update;
         private System.Windows.Forms.Button btn_Up;
+        private System.Windows.Forms.Button button1;
     }
 }
 

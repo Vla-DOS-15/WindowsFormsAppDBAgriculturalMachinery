@@ -22,22 +22,22 @@ namespace WindowsFormsAppDB
         {
 
             this.toolsTableAdapter.Fill(this.agriculturalMachineryDataSet.Tools);
- 
+
             this.orderTableAdapter.Fill(this.agriculturalMachineryDataSet.Order);
 
-            //try
-            //{
-            //    con = new SqlConnection(ConfigurationManager.ConnectionStrings["AgriculturalMachinery"].ConnectionString);
-            //    con.Open();
-            //    sda = new SqlDataAdapter("SELECT * FROM [Order]", con);
-            //    ds = new DataSet();
-            //    sda.Fill(ds, "Order");
-            //    dataGridView4.DataSource = ds.Tables[0];
-            //}
-            //catch(Exception ex)
-            //{
-            //    MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            try
+            {
+                con = new SqlConnection(ConfigurationManager.ConnectionStrings["AgriculturalMachinery"].ConnectionString);
+                con.Open();
+                sda = new SqlDataAdapter("SELECT * FROM [Tools]", con);
+                ds = new DataSet();
+                sda.Fill(ds, "Tools");
+                dataGridView4.DataSource = ds.Tables[0];
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void btn_Update_Click(object sender, EventArgs e)
         {
@@ -57,28 +57,28 @@ namespace WindowsFormsAppDB
             {
                 SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AgriculturalMachinery"].ConnectionString);
                 SqlCommand cmd = new SqlCommand("Update [Tools] set NameTool=@NameTool, NumberTool=@NumberTool where IdTool=@IdTool", connection);
-                
-                    cmd.Parameters.Add("@NameTool", SqlDbType.VarChar, 100).Value = "NameTool";
-                    cmd.Parameters.Add("@NumberTool", SqlDbType.BigInt)22;
-                    cmd.Parameters.Add("@IdTool", SqlDbType.BigInt);
 
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                //  cmd.Parameters.Add("@NameTool", SqlDbType.VarChar, 100).Value = "NameTool";
+                // cmd.Parameters.Add("@NumberTool", SqlDbType.BigInt)22;
+                // cmd.Parameters.Add("@IdTool", SqlDbType.BigInt);
 
-                    DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-                    da.Fill(dt);
+                DataTable dt = new DataTable();
 
-                    for(int item = 0; item <= dataGridView4.Rows.Count - 1; item++)
-                    {
-                        cmd.Parameters.AddWithValue("@IdTool", dataGridView4.Rows[item].Cells[0].Value);
-                        cmd.Parameters.AddWithValue("@NameTool", dataGridView4.Rows[item].Cells[1].Value);
-                        cmd.Parameters.AddWithValue("@NumberTool", dataGridView4.Rows[item].Cells[2].Value);
+                da.Fill(dt);
+
+                for(int item = 0; item <= dataGridView4.Rows.Count - 1; item++)
+                {
+                    cmd.Parameters.AddWithValue("@IdTool", dataGridView4.Rows[item].Cells[0].Value);
+                    cmd.Parameters.AddWithValue("@NameTool", dataGridView4.Rows[item].Cells[1].Value);
+                    cmd.Parameters.AddWithValue("@NumberTool", dataGridView4.Rows[item].Cells[2].Value);
                     connection.Open();
-                        MessageBox.Show(cmd.ExecuteNonQuery().ToString());
+                    MessageBox.Show(cmd.ExecuteNonQuery().ToString());
                     connection.Close();
 
-                    }
-                
+                }
+
 
 
                 //for(int item = 0; item <= dataGridView4.Rows.Count - 1; item++)
@@ -162,9 +162,9 @@ namespace WindowsFormsAppDB
         }
         private void tb_Insert_Click(object sender, EventArgs e)
         {
-            
 
-         
+
+
 
 
             if(tB_Id.Text != string.Empty || tB_CustomerId.Text != string.Empty || tb_ToolId.Text != string.Empty || tb_Number.Text != string.Empty)
@@ -197,30 +197,30 @@ namespace WindowsFormsAppDB
 
         private void btn_Album_Click(object sender, EventArgs e)
         {
-           
+
 
         }
 
 
         private void btn_Perfomers_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btn_RecordCompanys_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btn_Clean_Click(object sender, EventArgs e)
@@ -238,81 +238,81 @@ namespace WindowsFormsAppDB
 
         }
 
-        private void comboBox3_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            using(SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["AgriculturalMachinery"].ConnectionString))
-            {
-                if(comboBox3.SelectedIndex == 0)
-                {
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from [Tools]", sqlConnection);
+        //private void comboBox3_SelectedIndexChanged_1(object sender, EventArgs e)
+        //{
+        //    using(SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["AgriculturalMachinery"].ConnectionString))
+        //    {
+        //        if(comboBox3.SelectedIndex == 0)
+        //        {
+        //            SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from [Tools]", sqlConnection);
 
-                    DataSet dataSet = new DataSet();
+        //            DataSet dataSet = new DataSet();
 
-                    dataAdapter.Fill(dataSet);
-                    dataGridView1.DataSource = dataSet.Tables[0];
+        //            dataAdapter.Fill(dataSet);
+        //            dataGridView1.DataSource = dataSet.Tables[0];
 
-                }
-                if(comboBox3.SelectedIndex == 1)
-                {
+        //        }
+        //        if(comboBox3.SelectedIndex == 1)
+        //        {
 
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from [Customers]", sqlConnection);
+        //            SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from [Customers]", sqlConnection);
 
-                    DataSet dataSet = new DataSet();
+        //            DataSet dataSet = new DataSet();
 
-                    dataAdapter.Fill(dataSet);
-                    dataGridView1.DataSource = dataSet.Tables[0];
+        //            dataAdapter.Fill(dataSet);
+        //            dataGridView1.DataSource = dataSet.Tables[0];
 
-                }
-                if(comboBox3.SelectedIndex == 2)
-                {
+        //        }
+        //        if(comboBox3.SelectedIndex == 2)
+        //        {
 
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from [Order]", sqlConnection);
+        //            SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from [Order]", sqlConnection);
 
-                    DataSet dataSet = new DataSet();
+        //            DataSet dataSet = new DataSet();
 
-                    dataAdapter.Fill(dataSet);
-                    dataGridView1.DataSource = dataSet.Tables[0];
+        //            dataAdapter.Fill(dataSet);
+        //            dataGridView1.DataSource = dataSet.Tables[0];
 
-                }
-            }
+        //        }
+        //    }
 
-        }
+        //}
 
 
         private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-          
+
         }
 
-        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            using(SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["AgriculturalMachinery"].ConnectionString))
-            {
-                SqlDataAdapter dataAdapter = new SqlDataAdapter($"select Id as 'Код замовлення', IdTool as 'Код інструмента', NameTool as 'Назва інструмента' from [Order] join [Tools] on IdTool = ToolId where NameTool = N'{comboBox4.Text}'", sqlConnection);
+        //private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    using(SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["AgriculturalMachinery"].ConnectionString))
+        //    {
+        //        SqlDataAdapter dataAdapter = new SqlDataAdapter($"select Id as 'Код замовлення', IdTool as 'Код інструмента', NameTool as 'Назва інструмента' from [Order] join [Tools] on IdTool = ToolId where NameTool = N'{comboBox4.Text}'", sqlConnection);
 
-                DataSet dataSet = new DataSet();
+        //        DataSet dataSet = new DataSet();
 
-                dataAdapter.Fill(dataSet);
-                dataGridView4.DataSource = dataSet.Tables[0];
-            }
-        }
+        //        dataAdapter.Fill(dataSet);
+        //        dataGridView4.DataSource = dataSet.Tables[0];
+        //    }
+        //}
 
         private void agriculturalMachineryDataSet1BindingSource1_CurrentChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBox2_SelectedIndexChanged_2(object sender, EventArgs e)
-        {
-            using(SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["AgriculturalMachinery"].ConnectionString))
-            {
-                SqlDataAdapter dataAdapter = new SqlDataAdapter($"select Id as 'Код замовлення', IdTool as 'Код інструмента', NameTool as 'Назва інструмента' from [Order] join [Tools] on IdTool = ToolId where Id = {comboBox2.Text}", sqlConnection);
-                DataSet dataSet = new DataSet();
+        //private void comboBox2_SelectedIndexChanged_2(object sender, EventArgs e)
+        //{
+        //    using(SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["AgriculturalMachinery"].ConnectionString))
+        //    {
+        //        SqlDataAdapter dataAdapter = new SqlDataAdapter($"select Id as 'Код замовлення', IdTool as 'Код інструмента', NameTool as 'Назва інструмента' from [Order] join [Tools] on IdTool = ToolId where Id = {comboBox2.Text}", sqlConnection);
+        //        DataSet dataSet = new DataSet();
 
-                dataAdapter.Fill(dataSet);
-                dataGridView4.DataSource = dataSet.Tables[0];
-            }
-        }
+        //        dataAdapter.Fill(dataSet);
+        //        dataGridView4.DataSource = dataSet.Tables[0];
+        //    }
+        //}
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -392,8 +392,79 @@ namespace WindowsFormsAppDB
                 dataGridView3.DataSource = dataSet.Tables[0];
             }
         }
-       // SqlConnection sqlConnectionToUpdate = new SqlConnection(ConfigurationManager.ConnectionStrings["AgriculturalMachinery"].ConnectionString);
+        // SqlConnection sqlConnectionToUpdate = new SqlConnection(ConfigurationManager.ConnectionStrings["AgriculturalMachinery"].ConnectionString);
+        public static bool ExistsRecord(string str)
+        {
+            string strSql = "select * from Tools where IdTool= '" + str + "'";
+            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AgriculturalMachinery"].ConnectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = strSql;
+                cmd.CommandType = CommandType.Text;
+                SqlDataReader datareader = cmd.ExecuteReader();
+                return datareader.HasRows;
+            }
 
+        }
+
+        public static void ExecuteSql(SqlParameter[] sqlParas, string strSql)
+        {
+            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AgriculturalMachinery"].ConnectionString))
+            {
+                connection.Open();
+                using(SqlCommand cmd = new SqlCommand(strSql, connection))
+                {
+                    foreach(SqlParameter sp in sqlParas)
+                    {
+                        cmd.Parameters.Add(sp);
+                    }
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public static bool UpdataFromDGVtoDB(DataGridView dgv)
+        {
+            try
+            {
+                for(int i = 0; i < dgv.Rows.Count - 1; i++)
+                {
+                    string strCADTYPE;
+                    if(dgv.Rows[i].Cells[1].Value.ToString().StartsWith("["))
+                    {
+                        strCADTYPE = "1";
+                    }
+                    else
+                    {
+                        strCADTYPE = "2";
+                    }
+
+                    SqlParameter[] sqlParas = new SqlParameter[]
+                    {
+                        new SqlParameter("@IdTool", dgv.Rows[i].Cells[0].Value.ToString()),
+                        new SqlParameter("@NameTool", dgv.Rows[i].Cells[1].Value.ToString()),
+                        new SqlParameter("@NumberTool", dgv.Rows[i].Cells[2].Value.ToString())
+                    };
+
+                    if(ExistsRecord(dgv.Rows[i].Cells[0].Value.ToString()))
+                    {
+                        ExecuteSql(sqlParas, "update Tools set NameTool = @NameTool,NumberTool = @NumberTool where IdTool = @IdTool");
+                    }
+                    else
+                    {
+                        ExecuteSql(sqlParas, "insert into CorrespondFields values(@SdeLayerName,@CadLayerName,@SdeField,@CadField,@FieldType,@CADTYPE)");
+                    }
+                }
+                    return true;
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        } 
         private void btn_Up_Click(object sender, EventArgs e)
         {
             using(SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["AgriculturalMachinery"].ConnectionString))
@@ -404,6 +475,47 @@ namespace WindowsFormsAppDB
                 dataAdapter.Fill(dataSet);
                 dataGridView4.DataSource = dataSet.Tables[0];
 
+            }
+        }
+
+        private void dataGridView4_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            using(SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AgriculturalMachinery"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Update [Tools] set NameTool=@NameTool, NumberTool=@NumberTool where IdTool=@IdTool", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //cmd.Parameters.AddWithValue("@companyName", userName);
+                cmd.Parameters.AddWithValue("@IdTool", dataGridView4.Rows[e.RowIndex].Cells[0].Value);
+                cmd.Parameters.AddWithValue("@NameTool", dataGridView4.Rows[e.RowIndex].Cells[1].Value);
+                cmd.Parameters.AddWithValue("@NumberTool", dataGridView4.Rows[e.RowIndex].Cells[2].Value);
+
+                conn.Open();
+
+                MessageBox.Show(cmd.ExecuteNonQuery().ToString());
+            }
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            UpdataFromDGVtoDB(dataGridView4);
+            SelectTable("Tools");
+        }
+
+        void SelectTable(string NameTable)
+        {
+            try
+            {
+                con = new SqlConnection(ConfigurationManager.ConnectionStrings["AgriculturalMachinery"].ConnectionString);
+                con.Open();
+                sda = new SqlDataAdapter($"SELECT * FROM [{NameTable}]", con);
+                ds = new DataSet();
+                sda.Fill(ds, "Tools");
+                dataGridView4.DataSource = ds.Tables[0];
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
